@@ -1,4 +1,5 @@
-# Application CI Design | Python CI Checks (Attendance API) | Unit Testing (SCRUM-152)
+# Python CI Checks | Unit Testing 
+<img width="240" height="240" alt="icons8-python-240" src="https://github.com/user-attachments/assets/e0632c0c-b531-4ef2-bdfd-4a67d0d1fb9d" />
 
 ---
 
@@ -9,26 +10,21 @@
 | Vashishtha Prakash | 21-09-2026     | v1.0        | 21-09-2026         | Sunny/Shubham   | Shreya / Nikita  | Piyush Upadhyay   |
 
 ---
-
-This repository contains the Proof of Concept (POC) for designing and implementing a robust Continuous Integration (CI) automation framework for the Python-based **Attendance REST API** microservice using Jenkins, Python Virtual Environments (venv), and Pytest.
-
----
-
 ## Table of Contents
+
 * [1. Introduction](#1-introduction)
-* [2. What & Why (Problem & Solution)](#2-what--why-problem--solution)
-  * [The "What"](#the-what)
-  * [The "Why"](#the-why)
-* [3. Workflow Diagram](#3-workflow-diagram)
-* [4. Different Tools & Comparison Matrix](#4-different-tools--comparison-matrix)
-* [5. Advantages of this CI Design](#5-advantages-of-this-ci-design)
-* [6. POC Evidence (Execution Results)](#6-poc-evidence-execution-results)
+* [2. What](#2-what)
+* [3. Why](#3-why)
+* [4. Workflow Diagram](#4-workflow-diagram)
+* [5. Different Tools & Comparison Matrix](#5-different-tools--comparison-matrix)
+* [6. Advantages of this CI Design](#6-advantages-of-this-ci-design)
+* [7. POC Evidence (Execution Results)](#7-poc-evidence-execution-results)
   * [Pipeline Stage View Evidence](#pipeline-stage-view-evidence)
   * [Automated Headless Testing Result Console Logs](#automated-headless-testing-result-console-logs)
-* [7. Best Practices Followed](#7-best-practices-followed)
-* [8. Recommendation & Conclusion](#8-recommendation--conclusion)
-* [9. Contact Information & References](#9-contact-information--references)
-* [10. References](#10-references)
+* [8. Best Practices Followed](#8-best-practices-followed)
+* [9. Recommendation & Conclusion](#9-recommendation--conclusion)
+* [10. Contact Information & References](#10-contact-information--references)
+* [11. References](#11-references)
 
 ---
 
@@ -37,7 +33,7 @@ The Attendance REST API is a critical core backend module responsible for handli
 
 ---
 
-## 2. What & Why (Problem & Solution)
+## 2. What 
 
 ### The "What"
 An automated, isolated validation framework triggered upon incoming changes to the code repository that orchestrates:
@@ -45,13 +41,13 @@ An automated, isolated validation framework triggered upon incoming changes to t
 * **Static Syntax Analysis:** Scanning backend source files using lint rules (`flake8` framework hooks) to intercept programmatic anomalies before compilation.
 * **Functional Logic Verification:** Executing headless testing pipelines via `pytest` to validate application endpoint modules (router, client, models, and utils).
 
-### The "Why"
+## 3. Why
 * **Guaranteed Reliability on Critical Paths:** Attendance data calculations have direct downstream impacts on core organizational matrices. Automating checks ensures broken changes never compromise live microservice flows.
 * **Bypassing PEP 668 Multi-Distribution Conflicts:** Modern Linux enterprise layers (Ubuntu 24.04/22.04) enforce strict `externally-managed-environment` rules. This architecture safely isolates application binaries away from critical OS root paths.
 
 ---
 
-## 3. Workflow Diagram
+## 4. Workflow Diagram
 The structural automation flow of the Python Attendance API CI execution pipeline managed dynamically by the Jenkins server node:
 
 ```text
@@ -72,7 +68,7 @@ The structural automation flow of the Python Attendance API CI execution pipelin
 
 ---
 
-## 4. Different Tools & Comparison Matrix
+## 5. Different Tools & Comparison Matrix
 
 To optimize build speed and maintain server layer stability, the following tooling choices were finalized for this pipeline execution:
 
@@ -85,14 +81,14 @@ To optimize build speed and maintain server layer stability, the following tooli
 
 ---
 
-## 5. Advantages of this CI Design
+## 6. Advantages of this CI Design
 * **Early Defect Catching:** Logical regressions or syntax bugs within the core attendance tracking handlers are intercepted immediately during the active sprint loop.
 * **Dependency Health:** Dynamic isolated wheel configurations lock out third-party framework discrepancies between independent developer local systems and production.
 * **Zero Host Interferences:** All library packages are completely caged inside the active Jenkins workspace directory, keeping the primary server operating system untouched.
 
 ---
 
-## 6. POC Evidence (Execution Results)
+## 7. POC Evidence (Execution Results)
 
 The multi-stage Python pipeline is fully integrated and running with complete **SUCCESS (Green Status)** on the cloud infrastructure instance.
 
@@ -114,19 +110,19 @@ The multi-stage Python pipeline is fully integrated and running with complete **
 
 ---
 
-## 7. Best Practices Followed
+## 8. Best Practices Followed
 * **Cloud Infrastructure Guardrails:** The hosting AWS Security Group is strict—administrative port boundaries (SSH Port 22 and Jenkins UI Port 8080) are firewall-restricted exclusively to specific authorized corporate node IPs.
 * **Binary Wheel Enforcement:** Problematic Python build dependencies are forced to initialize from target native binaries (`--only-binary=:all:` flag structures), entirely avoiding pipeline hanging states or compiler setup errors.
 * **Clean Workspace Execution:** Automated recursive environment wipes (`rm -rf venv`) prevent stale caching issues during fresh execution triggers.
 
 ---
 
-## 8. Recommendation & Conclusion
+## 9. Recommendation & Conclusion
 The implementation proves that bundling native Python environment sandboxing with a clean Pytest framework inside automated Jenkins stages builds a high-velocity, reliable quality control check. It is recommended to lock this pipeline configuration as a strict merging pre-requisite for all feature branches into the main integration repository branch.
 
 ---
 
-## 9. Contact Information & References
+## 10. Contact Information & References
 
 | **Name**           | **Email**                                                                                     |
 | ------------------ | --------------------------------------------------------------------------------------------- |
@@ -134,7 +130,7 @@ The implementation proves that bundling native Python environment sandboxing wit
 
 ---
 
-## 10. References
+## 11. References
 
   * [Jenkins Pipeline DSL Syntax Manual](https://jenkins.io)
   * [Pytest Headless Test Execution Framework Docs](https://pytest.org)
